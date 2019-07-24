@@ -11,23 +11,24 @@
 
     <link href="" rel="stylesheet">
     <style>
-        .header-bg{
-            height: 400px;
-            width: 100%;
-            background-image: url({{ Storage::disk('public')->url('post/'.$post->image) }});
-            background-size: cover;
-        }
-        .favorite_posts{
-            color: blue;
-        }
+
     </style>
 @endpush
 
 @section('content')
-@foreach($post as $post_data)
-    {{ $post_data->title }}
-    @endforeach
+
+    @if (count($posts) > 0 )
+
+        @foreach($posts as $key => $post)
+             ace
+        @endforeach
+        @else
+         nai
+    @endif
+
+
 @endsection
+
 
 @push('js')
 

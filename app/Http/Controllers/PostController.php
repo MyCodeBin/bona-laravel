@@ -11,14 +11,14 @@ use Illuminate\Support\Facades\Session;
 class PostController extends Controller
 {
     public function index(){
-        $post_instance = Post::latest()->get();
+        $posts = Post::latest()->paginate(6);
 
-        return view('all_post', compact('post_instance'));
+        return view('all_post', compact('posts'));
 
     }
     public function details($slug){
-        $post = Post::where('slug',$slug)->first();
+        $posts  = Post::where('slug',$slug)->first();
 
-        return view('post_page', compact('post'));
+        return view('post_page', compact('posts'));
     }
 }
