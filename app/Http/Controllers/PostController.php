@@ -31,4 +31,22 @@ class PostController extends Controller
 
         return view('post_page', compact('post','random_posts'));
     }
+
+
+    public function postByCategory($slug){
+
+        $category = Category::where('slug',$slug)->first();
+
+        return view('category_post', compact('category'));
+
+    }
+
+
+    public function postByTag($slug){
+
+        $tag = Tag::where('slug',$slug)->first();
+
+        return view('tag_post', compact('tag'));
+
+    }
 }

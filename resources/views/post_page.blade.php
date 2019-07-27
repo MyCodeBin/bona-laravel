@@ -11,12 +11,7 @@
 
     <link href="" rel="stylesheet">
     <style>
-        .header-bg{
-            height: 400px;
-            width: 100%;
-            background-image: url({{ asset('storage/post/'.$post->image) }});
-            background-size: cover;
-        }
+
         .favorite_posts{
             color: blue;
         }
@@ -26,9 +21,7 @@
 
 @section('content')
 
-    <div class="header-bg">
 
-    </div><!-- slider -->
 
     <section class="post-area section">
         <div class="container">

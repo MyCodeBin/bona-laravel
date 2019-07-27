@@ -17,12 +17,19 @@
 */
 
 Route::get('/', 'HomeController@index')->name('home');
+
 Route::get('posts','PostController@index')->name('post.index');
-Route::get('flight','FlightController@index')->name('flight.index');
+
 Route::get('post/{slug}','PostController@details')->name('post.details');
+
+Route::get('/category/{slug}','PostController@postByCategory')->name('category.post');
+
+Route::get('/tag/{slug}','PostController@postByTag')->name('taq.post');
+
 Route::post('subscriber', 'SubscriberController@store')->name('subscriber.store');
 
 Route::get('/category/{slug}','PostController@postByCategory')->name('category.posts');
+
 Route::get('/tag/{slug}','PostController@postByTag')->name('tag.posts');
 
 
