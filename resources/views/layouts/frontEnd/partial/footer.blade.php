@@ -23,16 +23,16 @@
             <div class="col-lg-4 col-md-6">
                 <div class="footer-section">
                     <h4 class="title"><b>CATAGORIES</b></h4>
+
                     <ul>
-                        <li><a href="#">BEAUTY</a></li>
-                        <li><a href="#">HEALTH</a></li>
-                        <li><a href="#">MUSIC</a></li>
+                        @foreach($categories as $object)
+
+                            <li><a href="{{ route('category.posts',$object->slug) }}">{{ $object->name }}</a></li>
+                        @endforeach
+
+
                     </ul>
-                    <ul>
-                        <li><a href="#">SPORT</a></li>
-                        <li><a href="#">DESIGN</a></li>
-                        <li><a href="#">TRAVEL</a></li>
-                    </ul>
+
                 </div><!-- footer-section -->
             </div><!-- col-lg-4 col-md-6 -->
 

@@ -22,7 +22,7 @@ Route::get('posts','PostController@index')->name('post.index');
 
 Route::get('post/{slug}','PostController@details')->name('post.details');
 
-Route::get('/category/{slug}','PostController@postByCategory')->name('category.post');
+
 
 Route::get('/tag/{slug}','PostController@postByTag')->name('taq.post');
 
@@ -98,4 +98,11 @@ Route::group(['as'=>'author.','prefix'=>'author', 'namespace'=>'Author','middlew
     Route::delete('comments/{id}','CommentController@destroy')->name('comment.destroy');
 
 });
+
+View::composer('layouts.frontEnd.partial.footer',function ($view) {
+    $categories = App\Category::all();
+    //return $categories;
+    $view->with('categories',$categories);
+});
+
 

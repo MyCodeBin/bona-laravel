@@ -18,7 +18,7 @@ class PostController extends Controller
     }
     public function details($slug){
 
-        //$post = Post::where('slug',$slug)->approved()->published()->first();
+
         $post = Post::where('slug',$slug)->first();
 
         $blogKey = 'blog_' . $post->id;
@@ -26,7 +26,7 @@ class PostController extends Controller
             $post->increment('view_count');
             Session::put($blogKey,1);
         }
-        //$randomposts = Post::approved()->published()->take(3)->inRandomOrder()->get();
+
         $random_posts = Post::approved()->published()->take(3)->inRandomOrder()->get();
 
         return view('post_page', compact('post','random_posts'));
@@ -37,7 +37,10 @@ class PostController extends Controller
 
         $category = Category::where('slug',$slug)->first();
 
-        return view('category_post', compact('category'));
+
+        $posts = $category->posts()->approved()->published()->get();
+
+        return view('category_post', compact('category','posts'));
 
     }
 
@@ -45,8 +48,8 @@ class PostController extends Controller
     public function postByTag($slug){
 
         $tag = Tag::where('slug',$slug)->first();
-
-        return view('tag_post', compact('tag'));
+        $posts = $tag->posts()->approved()->published()->get();
+        return view('tag_post', compact('tag','posts'));
 
     }
 }
