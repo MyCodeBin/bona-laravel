@@ -88,7 +88,8 @@
             </div><!-- col-lg-4 col-md-6 -->
 
             @endforeach
-                {{ $posts->links('vendor.pagination.bootstrap-4') }}
+
+
 
 
 
@@ -98,8 +99,9 @@
         </div><!-- row -->
 
         {{--<a class="load-more-btn" href="#"><b>LOAD MORE</b></a>--}}
-
+        {{ $posts->links('vendor.pagination.bootstrap-4') }}
     </div><!-- container -->
+
 </section><!-- section -->
 
 

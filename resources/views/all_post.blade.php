@@ -72,9 +72,9 @@
 
 
 
-                    {{ $posts->links('vendor.pagination.bootstrap-4') }}
-            </div><!-- row -->
 
+            </div><!-- row -->
+            {{ $posts->links('vendor.pagination.bootstrap-4') }}
             {{--<a class="load-more-btn" href="#"><b>LOAD MORE</b></a>--}}
 
         </div><!-- container -->

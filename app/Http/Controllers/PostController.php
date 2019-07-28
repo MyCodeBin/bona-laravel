@@ -11,7 +11,7 @@ use Illuminate\Support\Facades\Session;
 class PostController extends Controller
 {
     public function index(){
-        $posts = Post::latest()->paginate(6);
+         $posts = Post::latest()->approved()->published()->paginate(6);
 
         return view('all_post', compact('posts'));
 
@@ -27,7 +27,7 @@ class PostController extends Controller
             Session::put($blogKey,1);
         }
         //$randomposts = Post::approved()->published()->take(3)->inRandomOrder()->get();
-        $random_posts = Post::all()->random(6);
+        $random_posts = Post::approved()->published()->take(3)->inRandomOrder()->get();
 
         return view('post_page', compact('post','random_posts'));
     }
